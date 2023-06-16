@@ -20,16 +20,16 @@ function PlantPage() {
     fetch('http://localhost:6001/plants', {
       method: 'POST',
       headers: {
-        'Content-Type' : 'application/json',
+        'Content-Type': 'application/json',
         Accept: 'application/json'
       },
       body: JSON.stringify(formData)
     })
-    .then(r => r.json())
-    .then(newPlant => {
-       setAllPlants([...allPlants, newPlant]);
-       setPlantsToDisplay([...plantsToDisplay, newPlant]);
-    })
+      .then(r => r.json())
+      .then(newPlant => {
+        setAllPlants([...allPlants, newPlant]);
+        setPlantsToDisplay([...plantsToDisplay, newPlant]);
+      })
   }
 
   function searchForPlants(searchValue) {
@@ -37,12 +37,40 @@ function PlantPage() {
     setPlantsToDisplay(filteredPlants)
   }
 
+  function updatePrice(updatedPrice , id) {
+    console.log(updatedPrice)
+    console.log(id)
+    fetch(`http://localhost:6001/plants/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type' : 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        price: updatedPrice
+      })
+    })
+    .then(r => r.json())
+    .then(updatedObj => {
+      const updatedPlants = allPlants.map((plant) => {
+        if (plant.id === updatedObj.id) {
+          return updatedObj
+        } else {
+          return plant;
+        }
+      })
+      setAllPlants(updatedPlants)
+      setPlantsToDisplay(updatedPlants)
+    })
+
+  }
+
 
   return (
     <main>
-      <NewPlantForm onNewPlantSubmit={onNewPlantSubmit}/>
-      <Search searchForPlants={searchForPlants}/>
-      <PlantList plantsToDisplay={plantsToDisplay} />
+      <NewPlantForm onNewPlantSubmit={onNewPlantSubmit} />
+      <Search searchForPlants={searchForPlants} />
+      <PlantList plantsToDisplay={plantsToDisplay} updatePrice={updatePrice} />
     </main>
   );
 }

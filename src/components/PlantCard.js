@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import ChangePrice from './ChangePrice';
 
-function PlantCard({ name, image, price }) {
+function PlantCard({ name, image, price, updatePrice, id }) {
 
   const [isStocked, setIsStocked] = useState(true);
 
@@ -12,6 +13,12 @@ function PlantCard({ name, image, price }) {
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <p>Price: {price}</p>
+      <ChangePrice
+        updatePrice={updatePrice}
+        id={id}
+        name={name}
+        image={image}
+      />
       {isStocked ? (
         <button onClick={handleStockedClick} className="primary">In Stock</button>
       ) : (
