@@ -4,19 +4,13 @@
       "id": 1,
       "name": "Aloe",
       "image": "./images/aloe.jpg",
-      "price": "12.95",
-      "updatedObj": {
-        "name": "Aloe",
-        "image": "./images/aloe.jpg",
-        "id": 1,
-        "price": "0.08"
-      }
+      "price": "24.95"
     },
     {
       "id": 2,
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
-      "price": "14.00"
+      "price": "0.05"
     },
     {
       "id": 3,
@@ -31,28 +25,10 @@
       "price": 12.11
     },
     {
-      "id": 5,
-      "name": "Jade",
-      "image": "./images/jade.jpg",
-      "price": 10.37
-    },
-    {
       "id": 6,
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
-    },
-    {
-      "id": 7,
-      "name": "Fiddle Leaf Fig",
-      "image": "./images/fiddle-leaf-fig.jpg",
-      "price": 55
-    },
-    {
-      "name": "Evergreen",
-      "image": "https://i.etsystatic.com/5148513/r/il/ab7a91/2159790339/il_570xN.2159790339_522o.jpg",
-      "price": "25.00",
-      "id": 8
     }
   ]
 }

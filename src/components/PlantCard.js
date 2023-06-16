@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import ChangePrice from './ChangePrice';
 
-function PlantCard({ name, image, price, updatePrice, id }) {
+function PlantCard({ name, image, price, updatePrice, id, deletePlant }) {
 
   const [isStocked, setIsStocked] = useState(true);
 
   function handleStockedClick() {
     setIsStocked(!isStocked);
   }
+
+  function handleDeleteClick() {
+    deletePlant(id);
+  }
   return (
     <li className="card">
+      <button onClick={handleDeleteClick}>X</button>
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <p>Price: {price}</p>

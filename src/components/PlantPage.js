@@ -38,8 +38,6 @@ function PlantPage() {
   }
 
   function updatePrice(updatedPrice , id) {
-    console.log(updatedPrice)
-    console.log(id)
     fetch(`http://localhost:6001/plants/${id}`, {
       method: 'PATCH',
       headers: {
@@ -62,7 +60,18 @@ function PlantPage() {
       setAllPlants(updatedPlants)
       setPlantsToDisplay(updatedPlants)
     })
+  }
 
+  function deletePlant(id) {
+    fetch(`http://localhost:6001/plants/${id}`, {
+      method: 'DELETE'
+    })
+    .then(r => r.json())
+    .then(deletedPlant => {
+      const filteredPlants = allPlants.filter((plant) => plant.id !== id);
+      setAllPlants(filteredPlants);
+      setPlantsToDisplay(filteredPlants);
+    })
   }
 
 
@@ -70,7 +79,7 @@ function PlantPage() {
     <main>
       <NewPlantForm onNewPlantSubmit={onNewPlantSubmit} />
       <Search searchForPlants={searchForPlants} />
-      <PlantList plantsToDisplay={plantsToDisplay} updatePrice={updatePrice} />
+      <PlantList plantsToDisplay={plantsToDisplay} updatePrice={updatePrice} deletePlant={deletePlant} />
     </main>
   );
 }
