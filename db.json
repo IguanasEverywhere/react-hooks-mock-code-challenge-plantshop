@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Evergreen",
+      "image": "https://i.etsystatic.com/5148513/r/il/ab7a91/2159790339/il_570xN.2159790339_522o.jpg",
+      "price": "25.00",
+      "id": 8
     }
   ]
 }

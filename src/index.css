@@ -107,6 +107,7 @@ input:focus {
 
 .card img {
   width: 100%;
+  height: 219px;
 }
 
 .card button {
